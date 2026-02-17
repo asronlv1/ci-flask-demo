@@ -52,9 +52,9 @@ ci-flask-demo:<commit-sha>
 
 Why This Approach
 
-*Ensures code is tested before building images
-*Prevents broken code from being deployed
-*Produces traceable and reproducible Docker images
-*Keeps CI focused on build and validation only
+Ensures code is tested before building images
+Prevents broken code from being deployed
+Produces traceable and reproducible Docker images
+Keeps CI focused on build and validation only
 
 
