@@ -65,6 +65,20 @@ Keeps CI focused on build and validation only
 Docker Hub credentials are stored as GitHub Actions Secrets and are used only during the Docker login step.  
 They are not written in the code and are not shown in logs.
 
+## Best Practices
+
+### 1. Why should `kubectl apply` not be used in CI?
+CI pipelines should only build and test code. Running `kubectl apply` can change the cluster and cause unexpected deployments.
+
+### 2. Why is `latest` a bad Docker tag?
+You cannot be sure which version is running. The tag can change over time and make issues hard to track.
+
+### 3. What is the difference between CI and CD?
+CI focuses on building and testing code.  
+CD focuses on deploying the code to environments.
+
+### 4. How does this pipeline support GitOps?
+All changes start from Git, are tested automatically, and create a Docker image linked to the commit.
 
 
 
