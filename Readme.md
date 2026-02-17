@@ -61,5 +61,10 @@ Produces traceable and reproducible Docker images
 Keeps CI focused on build and validation only
 
 
+## Secrets Usage
+Docker Hub credentials are stored as GitHub Actions Secrets and are used only during the Docker login step.  
+They are not written in the code and are not shown in logs.
+
+
 
 
