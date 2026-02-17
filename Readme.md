@@ -16,4 +16,45 @@ This project demonstrates a basic CI pipeline using GitHub Actions to test a Pyt
 
 ## CI Pipeline Flow
 
+1. Trigger
+The pipeline runs automatically on every git push.
+
+2. Checkout Code
+The pipeline pulls the latest code from the GitHub repository.
+
+3. Setup Python Environment
+Python 3.12 is installed to ensure a consistent runtime environment.
+
+4. Install Dependencies
+All required Python packages are installed using pip and requirements.txt.
+
+5. Run Tests
+
+Unit tests are executed using pytest.
+If any test fails, the pipeline stops and no Docker image is built.
+
+6. Docker Login
+
+The pipeline logs in to Docker Hub using GitHub Secrets:
+DOCKER_USERNAME
+DOCKER_PASSWORD (or access token)
+
+7. Build and Push Docker Image
+
+A Docker image is built from the project and pushed to Docker Hub.
+The image is tagged with the Git commit SHA, ensuring every build is uniquely identifiable.
+
+Example:
+
+```bash
+ci-flask-demo:<commit-sha>
+```
+
+Why This Approach
+
+*Ensures code is tested before building images
+*Prevents broken code from being deployed
+*Produces traceable and reproducible Docker images
+*Keeps CI focused on build and validation only
+
 
